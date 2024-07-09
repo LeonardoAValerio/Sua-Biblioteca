@@ -48,6 +48,7 @@ body{
     border-radius: 1rem;
 }
 
+/*BOOK SHELF*/
 .bookcase{
     width: 100%;
     height: 80%;
@@ -55,9 +56,29 @@ body{
 }
 
 .shelf{
-    height: 20%;
+    height: 40%;
     width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: baseline;
+    align-items: end;
     border-bottom: 0.2rem solid #000;
+}
+
+.book{
+    width: 12.5%;
+    height: 90%;
+    background: #7A9F79;
+    border: 0.1rem solid #4b5567;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book .title-book{
+    font-size: 1.2rem;
+    position: relative;
+    text-align: center;
 }
 
 /*NAV*/
@@ -80,7 +101,7 @@ body{
     height: 72%;
     background: var(--thirthen-color);
     border-radius: 2rem;
-}
+} 
 
 .button-nav img{
     width: 60%;
@@ -102,3 +123,4 @@ body{
 .button-nav-add img{
     width: 50%;
 }
+
