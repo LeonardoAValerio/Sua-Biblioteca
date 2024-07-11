@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/img/favicon-book.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="./Assets/css/createPage.css">
+    <title>Biblioteca Pessoal</title>
+</head>
+
+<body>
+    <main class="main-page">
+        <header class="header-page">
+            <h1 class="title-page">Adicionar Livro</h1>
+        </header>
+        <form class="form-create-book" action="/index.html" method="get">
+            <div class="question">
+                <label for="title">Título</label>
+                <input type="text" name="title" placeholder="Informe o título" required>
+            </div>
+            <div class="question">
+                <label for="author">Autor(es)</label>
+                <input type="text" name="author" placeholder="Informe o autor(es)">
+            </div>
+            <div class="question">
+                <label for="year-pub">Ano pub.</label>
+                <input type="number" name="year-pub" placeholder="Informe o ano de publicação">
+            </div>
+            <div class="question">
+                <label for="state">Status</label>
+                <select name="state">
+                    <optgroup label="Sua situação com o livro">
+                        <option value="0" label="Não lido"></option>
+                        <option value="1" label="Lido"></option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="question">
+                <label for="gender">Gênero</label>
+                <select name="gender" multiple>
+                    <optgroup label="Gênero">
+                        <option value="Romance" label="Romance"></option>
+                        <option value="Ficção" label="Ficção"></option>
+                        <option value="Terror" label="Terror"></option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="question">
+                <label for="synopsis">Sinopse</label>
+                <textarea name="synopsis" placeholder="Informe uma sinopse"></textarea>
+            </div>
+            <div class="question">
+                <label for="review">Resenha</label>
+                <textarea name="review" placeholder="Informe uma resenha"></textarea>
+            </div>
+
+            <div class="question">
+                <label for="img">Imagem</label>
+                <input type="text" name="img" placeholder="Informe uma imagem de capa(url)">
+            </div>
+
+            <div class="button-save">
+                <button type="submit" class="save">Salvar Livro</button>
+            </div>
+        </form>
+        <a class="return" href="index.html"><div class="button-return">&#10229;</div></a>
+    </main>
+    <script src="./Assets/js/index.js"></script>
+</body>
+
+</html>

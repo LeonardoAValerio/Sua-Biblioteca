@@ -1,0 +1,112 @@
+::-webkit-input-placeholder {
+    color: #2a2a2a;
+    font-size: 1.6rem;
+}
+
+.main-page{
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    max-width: 62rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.header-page{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-page h1{
+    display: block;
+    text-align: center;
+    background: #51CB6C;
+    width: 100%;
+    font-size: 3rem;
+    border-radius: 1rem;
+}
+
+.form-create-book {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    flex-flow: column wrap;
+}
+
+.question{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.question label{
+    font-size: 1.6rem;
+    display: block;
+    width: 20%;
+}
+
+input, select{
+    font-size: 1.6rem;
+    padding: 0.5rem;
+    display: block;
+    background: #B4DCBC;
+    border: none;
+    width: 80%;
+}
+
+textarea{
+    margin-top: 0.4rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    width: 100%;
+    height: 6rem;
+    resize: none;
+    border: none;
+    background: #B4DCBC;
+}
+
+.button-save{
+    margin: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.save{
+    width: 40%;
+    height: 4rem;
+    border-radius: 2rem;
+    border: #2a2a2a solid 0.1rem;
+    font-size: 1.8rem;
+}
+
+.return{
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background: #7CBE7E;
+    left: 2rem;
+    bottom: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-decoration: none;
+}
+
+.button-return{
+    color: #000;
+    position: relative;
+    top: 12%;
+    font-size: 3rem;
+    text-align: center;
+}

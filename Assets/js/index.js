@@ -1,16 +1,8 @@
-function Book(title = '', author = '', yearPub = '', state = '', gender = '', categorie = '', synopsis = '', review = ''){ //Função construtora dos livros
-    this.title = title;
-    this.author = author;
-    this.yearPub = yearPub;
-    this.state = state;
-    this.gender = gender;
-    this.categorie = categorie;
-    this.synopsis = synopsis;
-    this.review = review;
-}
+const saveBooks = books => localStorage.setItem('books', JSON.stringify(books));
+const getBooks = () => JSON.parse(localStorage.getItem('books'));
 
+/* PÁGINA PRINCIPAL */ 
 const randomPercent = (min = 0, max = 100) => Math.round(Math.random() * (max - min) + min) //Cri uma porcentagem aleátoria
-
 const createDivBook = () => { //Cria a Div que vai ser o Book
     const newBook = document.createElement('div'); //Cria a div
     newBook.setAttribute('class', 'book'); //Coloca a classe book
@@ -47,7 +39,6 @@ const createShelf = shelfBooks => { //Cria todo o elemento da estante (Recebe um
     };
     bookcase.appendChild(shelf); //No final coloca toda a nova prateleira na estante
 }
-
 const updateBookcase = books =>{ //Atualiza toda a bookcase (Recebendo um array de objetos(Livros))
     const numShelves = Math.ceil(books.length / 8); //Cálcula quantas shelves vão ter
     for(let i = 0; i <= numShelves; i++){ //Faz um loop com a quantidade de shelves
@@ -56,14 +47,57 @@ const updateBookcase = books =>{ //Atualiza toda a bookcase (Recebendo um array 
     }
 }
 
-const b1 = new Book('Círculo de Chuva');
-const b2 = new Book('Hellboy');
-const b3 = new Book('A historias da vovó amélia');
-const b4 = new Book('Bicho piruleta');
-const b5 = new Book('Corações de neve');
-const b6 = new Book('Isso aí');
-const b7 = new Book('Não sei mais');
-const b8 = new Book('Pra onde ir');
+/* CRIANDO LIVRO */ 
+function Book(title = '', author = '', yearPub = '', read= '', gender = '', categorie = '', synopsis = '', review = '', img = ''){ //Função construtora dos livros
+    this.title = title;
+    this.author = author;
+    this.yearPub = yearPub;
+    this.read = read;
+    this.gender = gender;
+    this.categorie = categorie;
+    this.synopsis = synopsis;
+    this.review = review;
+    this.img = img;
+}
 
-const books = [b1, b2, b3, b4, b5, b1, b2, b3, b4, b5];
-updateBookcase(books);
+const creatingBook = books => {
+    const form = document.querySelector('.form-create-book');
+    const title = form.querySelector('input[name="title"]');
+    const author = form.querySelector('input[name="author"]');
+    const yearPub = form.querySelector('input[name="year-pub"]');
+    const state = form.querySelector('select[name="state"]');
+    const gender = form.querySelector('select[name="gender"]');
+    const synopsis = form.querySelector('textarea[name="synopsis"]');
+    const review = form.querySelector('textarea[name="review"]');
+    const img = form.querySelector('input[name="img"]');
+
+    const resetInputsBook = () =>{
+        form.value = '';
+        title.value = '';
+        author.value = '';
+        yearPub.value = '';
+        state.value = '';
+        gender.value = '';
+        synopsis.value = '';
+        review.value = '';
+        img.value = '';
+    }    
+
+    form.addEventListener('submit',e => {
+        e.preventDefault();
+        const book = new Book(title.value, author.value, yearPub.value, state.value, gender.value, synopsis.value, review.value, img.value);
+        books.push(book);
+        saveBooks(books);
+        alert('Livro salvo com sucesso!');
+        resetInputsBook();
+    });
+}
+
+/* MAIN */
+const main = () =>{
+    const books = getBooks() || [];
+    const page = document.querySelector('.title-page');
+    if(page.innerText === 'Estante') updateBookcase(books);
+    if(page.innerText === 'Adicionar Livro') creatingBook(books);
+}
+main();
